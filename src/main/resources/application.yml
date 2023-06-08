@@ -1,0 +1,9 @@
+server:
+  port: 9092
+mybatis:
+  type-aliases-package: com.example.bloodusersystem.model
+  configuration:
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    auto-mapping-behavior: full
+    use-generated-keys: true
