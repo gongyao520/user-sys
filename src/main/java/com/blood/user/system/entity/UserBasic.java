@@ -1,5 +1,11 @@
 package com.blood.user.system.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.experimental.Accessors;
+import lombok.experimental.FieldDefaults;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,89 +15,41 @@ import java.io.Serializable;
  * @author makejava
  * @since 2023-06-08 17:57:24
  */
+@Data
+@Accessors(chain = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserBasic implements Serializable {
-    private static final long serialVersionUID = -45970037835740875L;
-    
-    private Integer id;
-    
-    private String name;
-    
-    private String nickname;
-    
-    private String avatar;
-    
-    private String bloodtype;
-    
-    private Date createdat;
-    
-    private Date updatedat;
-    
-    private Date deletedat;
+    static final long serialVersionUID = -45970037835740875L;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getBloodtype() {
-        return bloodtype;
-    }
-
-    public void setBloodtype(String bloodtype) {
-        this.bloodtype = bloodtype;
-    }
-
-    public Date getCreatedat() {
-        return createdat;
-    }
-
-    public void setCreatedat(Date createdat) {
-        this.createdat = createdat;
-    }
-
-    public Date getUpdatedat() {
-        return updatedat;
-    }
-
-    public void setUpdatedat(Date updatedat) {
-        this.updatedat = updatedat;
-    }
-
-    public Date getDeletedat() {
-        return deletedat;
-    }
-
-    public void setDeletedat(Date deletedat) {
-        this.deletedat = deletedat;
-    }
+    /**
+     * 主键Id
+     */
+    Long id;
+    /**
+     * 创建时间
+     */
+    Date createdAt;
+    /**
+     * 更新时间
+     */
+    Date updatedAt;
+    /**
+     * 是否删除，1是0否
+     */
+    Boolean isDel;
+    /**
+     * 名字
+     */
+    String name;
+    /**
+     * 昵称
+     */
+    String nickName;
+    /**
+     * 血型
+     */
+    String bloodType;
 
 }
 
